@@ -14,11 +14,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const reallyNo = document.getElementById("really-no");
   const finalYes = document.getElementById("final-yes");
 
-  noButton.onclick = () => {
+  const noTexts = [
+    "NO 😿",
+    "ARE YOU SURE? 🥺",
+    "NAH 😏",
+    "TRY AGAIN 😌",
+    "NOT TODAY 👀",
+    "COME ON 😭"
+  ];
+
+  let noIndex = 0;
+
+  /* 😈 NO BUTTON — JUMP + TEXT CHANGE */
+  function messWithNoButton() {
     banner.src = "./public/images/no.gif";
     resetGif();
-  };
 
+    noButton.textContent = noTexts[noIndex % noTexts.length];
+    noIndex++;
+
+    const x = Math.random() * 200 - 100;
+    const y = Math.random() * 120 - 60;
+    const rotate = Math.random() * 20 - 10;
+
+    noButton.style.transform = `translate(${x}px, ${y}px) rotate(${rotate}deg)`;
+  }
+
+  noButton.addEventListener("mouseenter", messWithNoButton);
+  noButton.addEventListener("click", messWithNoButton);
+
+  /* 💖 YES — GOES TO PRANK STEP */
   yesButton.onclick = () => {
     banner.src = "./public/images/prank.png";
     resetGif();
@@ -28,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stepOne.classList.remove("hidden");
   };
 
+  /* ☕ CLICK IF YOU REALLY WANNA GO */
   reallyYes.onclick = () => {
     banner.src = "./public/images/yes.gif";
     resetGif();
@@ -36,6 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
     finalStep.classList.remove("hidden");
   };
 
+  /* 😭 NO I WON'T GO */
   reallyNo.onclick = () => {
     banner.src = "./public/images/sorry.png";
     resetGif();
@@ -44,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
     stepTwo.classList.remove("hidden");
   };
 
+  /* 💕 OK I CAN GO */
   finalYes.onclick = () => {
     banner.src = "./public/images/yes.gif";
     resetGif();
