@@ -1,0 +1,85 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: linear-gradient(135deg, #fff4e6, #ffe8cc);
+  font-family: "Segoe UI", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #5c3a21;
+  font-size: 1.8rem;
+  margin-top: 20px;
+}
+
+.buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+button {
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+#yes-button {
+  background: #c97c5d;
+  color: white;
+  box-shadow: 0 8px 20px rgba(201, 124, 93, 0.4);
+}
+
+#yes-button:hover {
+  transform: scale(1.15);
+  box-shadow: 0 12px 25px rgba(201, 124, 93, 0.6);
+}
+
+#no-button {
+  background: #e74c3c;
+  color: white;
+}
+
+#no-button:hover {
+  transform: scale(0.95);
+}
+
+.banner-gif img {
+  height: 240px;
+  margin-top: 10px;
+}
+
+.message {
+  display: none;
+  margin-top: 30px;
+}
+
+#success-message {
+  color: #5c3a21;
+  font-size: 1.6rem;
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.4rem;
+  }
+
+  button {
+    padding: 12px 24px;
+  }
+}
