@@ -9,32 +9,41 @@
 
   <body>
     <div class="container">
-
       <div class="banner-gif">
         <img id="banner" src="./public/images/mid.gif" alt="banner" />
       </div>
 
-      <!-- QUESTION SECTION -->
-      <div id="question-container">
-        <h1 id="question-heading">
-          MISS FAKHIMA!! WILL YOU GO GRAB A COFFEE WITH ME SOMETIME? ☕😝😝
-        </h1>
+      <!-- QUESTION -->
+      <h1 id="question-heading">
+        MISS FAKHIMA!! WILL YOU GO GRAB A COFFEE WITH ME SOMETIME? ☕😝😝
+      </h1>
 
-        <div class="buttons">
-          <button id="yes-button">YES ☕💖</button>
-          <button id="no-button">NO 😿😿</button>
-        </div>
+      <!-- FIRST BUTTONS -->
+      <div class="buttons" id="first-buttons">
+        <button id="yes-button">YES ☕💖</button>
+        <button id="no-button">NO 😿😿</button>
       </div>
 
-      <!-- SUCCESS MESSAGE (HIDDEN BY DEFAULT) -->
-      <div id="final-message" style="display: none;">
-        <h2 id="success-message">
-          YAYYY 😊🫶 CAN’T WAIT.. SEE YOU SOON ☕✨
-        </h2>
+      <!-- STEP 1 AFTER YES -->
+      <div class="step hidden" id="step-one">
+        <img src="./public/images/prank.png" class="popup-img" />
+        <h2>AIN'T NO ONE TAKING YOU OUT FOR A COFFEE 🤣🤣</h2>
+
+        <button id="really-yes">CLICK IF YOU REALLY WANNA GO ☕</button>
+        <button id="really-no">NO I WON'T GO NOW 😤</button>
       </div>
 
-    </div>
+      <!-- STEP 2 PRANK APOLOGY -->
+      <div class="step hidden" id="step-two">
+        <img src="./public/images/sorry.png" class="popup-img" />
+        <h2>SORRRIRIIII 😭 MAZAK KAR RHA THA</h2>
 
-    <script src="./public/js/script.js"></script>
-  </body>
-</html>
+        <button id="exit">EXIT (DOESN'T WORK)</button>
+        <button id="final-yes">OK I CAN GO ☕💖</button>
+      </div>
+
+      <!-- FINAL SUCCESS -->
+      <div class="step hidden" id="final-step">
+        <img src="./public/images/yes.gif" class="popup-img" />
+        <h2>YAYYY 😊🫶 CAN’T WAIT.. SEE YOU SOON ☕✨</h2>
+      </div>
