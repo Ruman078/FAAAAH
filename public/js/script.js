@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     "ARE YOU SURE? 🥺",
     "NAH 😏",
     "TRY AGAIN 😌",
-    "NOT TODAY 👀",
+    "MAR JAO AP 💔",
     "COME ON 😭"
   ];
 
