@@ -85,8 +85,10 @@ button {
 }
 
 .hidden {
-  display: none;
+  display: none !important;
+  pointer-events: none;
 }
+
 
 .popup-img {
   width: 200px;
