@@ -2,53 +2,79 @@ const noButton = document.getElementById("no-button");
 const yesButton = document.getElementById("yes-button");
 const banner = document.getElementById("banner");
 
-const questionContainer = document.getElementById("question-container");
-const finalMessage = document.getElementById("final-message");
+const firstButtons = document.getElementById("first-buttons");
+const question = document.getElementById("question-heading");
+
+const stepOne = document.getElementById("step-one");
+const stepTwo = document.getElementById("step-two");
+const finalStep = document.getElementById("final-step");
+
+const reallyYes = document.getElementById("really-yes");
+const reallyNo = document.getElementById("really-no");
+const finalYes = document.getElementById("final-yes");
 
 const noTexts = [
   "NO 😢",
   "ARE YOU SURE? 🥺",
   "REALLY SURE?? 😳",
   "COME ON ☹️",
-  "MAR JAO AP 💔",
+  "DON’T BREAK MY HEART 💔",
   "OK OK… THINK AGAIN 😌"
 ];
 
 let index = 0;
+let size = 50;
 
-/* ---------- NO BUTTON (TEASING MODE 😈) ---------- */
-noButton.addEventListener("mouseenter", moveNoButton);
-noButton.addEventListener("click", moveNoButton);
-
-function moveNoButton() {
+/* NO BUTTON LOGIC */
+noButton.addEventListener("click", () => {
   banner.src = "./public/images/no.gif";
   refreshBanner();
 
   noButton.textContent = noTexts[index % noTexts.length];
   index++;
 
-  const x = Math.random() * 200 - 100;
-  const y = Math.random() * 150 - 75;
+  size += 10;
+  yesButton.style.transform = `scale(${size / 50})`;
+});
 
-  noButton.style.transform = `translate(${x}px, ${y}px) rotate(${Math.random() * 10 - 5}deg)`;
-}
-
-/* ---------- YES BUTTON (SUCCESS 💖) ---------- */
+/* FIRST YES */
 yesButton.addEventListener("click", () => {
+  banner.src = "./public/images/prank.gif";
+  refreshBanner();
+
+  question.style.display = "none";
+  firstButtons.style.display = "none";
+
+  stepOne.classList.remove("hidden");
+});
+
+/* CLICK IF YOU REALLY WANNA GO */
+reallyYes.addEventListener("click", () => {
   banner.src = "./public/images/yes.gif";
   refreshBanner();
 
-  // Smooth transition
-  questionContainer.style.opacity = "0";
-
-  setTimeout(() => {
-    questionContainer.style.display = "none";
-    finalMessage.style.display = "block";
-    finalMessage.style.opacity = "1";
-  }, 400);
+  stepOne.classList.add("hidden");
+  finalStep.classList.remove("hidden");
 });
 
-/* ---------- BANNER RESET (FOR GIF REPLAY) ---------- */
+/* NO I WON'T GO */
+reallyNo.addEventListener("click", () => {
+  banner.src = "./public/images/sorry.gif";
+  refreshBanner();
+
+  stepOne.classList.add("hidden");
+  stepTwo.classList.remove("hidden");
+});
+
+/* FINAL YES AFTER APOLOGY */
+finalYes.addEventListener("click", () => {
+  banner.src = "./public/images/yes.gif";
+  refreshBanner();
+
+  stepTwo.classList.add("hidden");
+  finalStep.classList.remove("hidden");
+});
+
 function refreshBanner() {
   const src = banner.src;
   banner.src = "";
