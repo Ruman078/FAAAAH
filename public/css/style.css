@@ -83,3 +83,14 @@ button {
     padding: 12px 24px;
   }
 }
+
+.hidden {
+  display: none;
+}
+
+.popup-img {
+  width: 200px;
+  margin: 20px auto;
+  display: block;
+}
+
